@@ -1,0 +1,102 @@
+\documentclass[11pt, hyperref = {unicode}, aspectratio=169]{beamer}
+\usetheme{Copenhagen}
+
+%% ---------Packages----------
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+\usepackage{dirtytalk}
+\usepackage{ragged2e}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{natbib}
+
+%% ----------Fonts----------
+\usepackage[sfdefault, book]{FiraSans} %font
+\setbeamerfont{caption}{size=\footnotesize}
+\setbeamerfont{frametitle}{size=\large, series=\firabook}
+
+%% ---------Other template options----------
+\setbeamertemplate{caption}[numbered]
+\mode<presentation>{}
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{0.6ex}}{\enditemize} %Itemize with wider spaces between items
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize items}[circle]
+
+%% -----------Headline - current section in bold-------------
+\setbeamertemplate{headline}{%
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1.125ex]{palette tertiary}%
+			\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus5fill}
+		\end{beamercolorbox}%
+	}
+}
+
+%% --------Footline - Author, title, number of slides---------
+\makeatletter
+\setbeamertemplate{footline}{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,center]{palette secondary}%
+			\usebeamerfont{title in head/foot}\insertshorttitle
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.25ex,dp=1ex,right]{palette secondary}%
+			\hspace*{2em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+		\end{beamercolorbox}%
+	}%
+	\vskip0pt%
+}
+\makeatother
+
+%% ---------Color scheme------------
+\definecolor{Color1}{HTML}{043363} %Prussian blue 
+\definecolor{Color2}{HTML}{f1edf4} %Off-white
+\setbeamercolor{palette primary}{bg=Color1,fg=white} %frame titles, title
+\setbeamercolor{palette secondary}{bg=Color1,fg=white} %footer background
+\setbeamercolor{palette tertiary}{bg=Color2,fg=white} %header background
+\setbeamercolor{palette quaternary}{bg=Color2,fg=Color1} %header sections
+\setbeamercolor{structure}{fg=Color1} % itemize, enumerate
+
+
+%% --------Presentation Info---------
+\title[Title]{\firamedium Title of the presentation}
+\author[Author]{\firamedium Author \\ \firabook Institution}
+\date{\small \today}
+
+\begin{document}
+\begin{frame}[noframenumbering,plain]
+\titlepage
+\end{frame}
+
+\section{First section}
+
+\begin{frame}{First frame}
+\begin{wideitemize}
+	\item Item 1
+	\item Item 2
+\end{wideitemize}
+\end{frame}
+
+\section{Second section}
+\begin{frame}{Second frame}
+\begin{wideitemize}
+	\item<1-> Item 1
+	\item<2-> Item 2 in \textcolor{orange}{orange}
+	\item<3-> Item 3 is an equation:
+	\[W^* = argmin (G_0 - G_j\cdot W)'V(G_0 - G_j\cdot W)
+	\]
+	where \[\sum\limits_{j=1}^J w_j = 1 \quad \text{and} \quad w_j \geq 0\]
+\end{wideitemize}
+\end{frame}
+
+%\section{}
+%\begin{frame}{Thank you}
+%	This WP is available at: \url{ajda-marjanovic.github.io/research} \newline\vskip
+%	or you can contact me at: \url{amarjanovic@luiss.it}
+%\end{frame}
+
+\end{document}
